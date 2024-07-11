@@ -1,0 +1,24 @@
+syntax = "proto3";
+package pocsuite;
+option go_package = "./";
+
+message ExecPythonSerializeRequest {
+  bytes data = 1;
+  string addr = 2;
+  string port = 3;
+  string id = 4;
+}
+
+message ResultByte {
+  bytes data = 1;
+}
+
+service Call {
+  // 执行
+  rpc ExecPythonSerialize(ExecPythonSerializeRequest)returns (ResultByte) {}
+  // 校验
+  rpc CheckPythonSerialize(ExecPythonSerializeRequest)returns (ResultByte) {}
+  // 测试
+  rpc healthCheck(ResultByte)returns (ResultByte) {}
+}
+
