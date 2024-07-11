@@ -32,13 +32,13 @@ http://liuqh.icu/2022/02/23/go/rpc/06-tls/
 # 生成CA私钥
 openssl genrsa -out ca.key 4096
 # 生成CA证书
-openssl req -new -x509 -days 365 -subj "/C=GB/L=Beijing/O=github/CN=huaun" -key ca.key -out ca.crt -config ca.conf
+openssl req -new -x509 -days 365 -subj "/C=GB/L=Beijing/O=github/CN=XXX" -key ca.key -out ca.crt -config ca.conf
 
 # 服务端
 # 生成公私钥
 openssl genrsa -out server.key 2048
 # 生成CSR
-openssl req -new  -subj "/C=GB/L=Beijing/O=github/CN=huaun" -key server.key -out server.csr -config server.conf
+openssl req -new  -subj "/C=GB/L=Beijing/O=github/CN=XXX" -key server.key -out server.csr -config server.conf
 # 基于CA签发证书
 openssl x509 -req -sha256 -CA ca.crt -CAkey ca.key -CAcreateserial -days 3650 -in server.csr -out server.crt -extensions req_ext -extfile server.conf
 
@@ -46,17 +46,13 @@ openssl x509 -req -sha256 -CA ca.crt -CAkey ca.key -CAcreateserial -days 3650 -i
 # 生成公私钥
 openssl genrsa -out client.key 2048
 # 生成CSR
-openssl req -new -subj "/C=GB/L=Beijing/O=github/CN=huaun" -key client.key -out client.csr
+openssl req -new -subj "/C=GB/L=Beijing/O=github/CN=XXX" -key client.key -out client.csr
 # 基于CA签发证书
 openssl x509 -req -sha256 -CA ca.crt -CAkey ca.key -CAcreateserial -days 3650 -in client.csr -out client.crt
 ```
 
 
 # Docker
-```bash
-# 镜像 harbor.huaun.com:11443/ai.scan/vul-pocsuite:0.0.0 为基础镜像 根目录下python/bin/pyhton 安装了requirements.txt中包含的依赖库
+```azure
 
-# 打包命令 (当前路径)
-docker build --no-cache -t harbor.huaun.com:11443/ai.scan/vul-pocsuite:* .
-# 上传命令 (当前路径)
-docker push harbor.huaun.com:11443/ai.scan/vul-pocsuite:*
+```
