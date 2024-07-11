@@ -1,6 +1,6 @@
 # pocsuite
 
-## goClient为客户端 用于 Comal引用
+## goClient为客户端 用于 pocx 引用
 
 - ExecPythonSerialize 用于执行poc
 - CheckPythonSerialize 用于入库前校验poc
